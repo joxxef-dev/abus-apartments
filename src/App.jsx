@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowDown, ArrowDownRight, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, X } from 'lucide-react'
 
+const imagePath = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
+
 const photos = {
-  entry: '/images/exterior-dusk.jpg',
-  lounge: '/images/lounge-minimal.jpg',
-  bedroom: '/images/penthouse-master.jpg',
-  pool: '/images/amenities-grid.jpg',
-  kitchen: '/images/89ff9c7a9cc100104c3a21c31fdbd83639bd9f3e.jpg',
-  dining: '/images/8d3b3820b4041be437388defe81d7503c30f0062.jpg',
-  corridor: '/images/060958f36570a12380360562a6c671fadf7432e0.jpg',
-  entrance: '/images/images (7).jpg',
+  entry: imagePath('exterior-dusk.jpg'),
+  lounge: imagePath('lounge-minimal.jpg'),
+  bedroom: imagePath('penthouse-master.jpg'),
+  pool: imagePath('amenities-grid.jpg'),
+  kitchen: imagePath('89ff9c7a9cc100104c3a21c31fdbd83639bd9f3e.jpg'),
+  dining: imagePath('8d3b3820b4041be437388defe81d7503c30f0062.jpg'),
+  corridor: imagePath('060958f36570a12380360562a6c671fadf7432e0.jpg'),
+  entrance: imagePath('images (7).jpg'),
 }
 
 const navigation = [
@@ -92,7 +94,7 @@ function useRevealOnScroll() {
 function Logo({ footer = false }) {
   return (
     <Link className={`brand-lockup${footer ? ' brand-lockup-footer' : ''}`} to="/" aria-label="Abus Apartment — home">
-      <img className="brand-logo" src="/images/logo.png" alt="Abus Apartment logo" />
+      <img className="brand-logo" src={imagePath('logo.png')} alt="Abus Apartment logo" />
       <span className="brand-type">
         <strong>ABUS</strong>
         <small>APARTMENT</small>

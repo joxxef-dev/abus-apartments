@@ -5,7 +5,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const projectDirectory = dirname(fileURLToPath(import.meta.url))
-const imageDirectory = resolve(projectDirectory, '..', 'images')
+const imageDirectory = resolve(projectDirectory, 'images')
 const outputImageDirectory = resolve(projectDirectory, 'dist', 'images')
 const imageAliases = {
   'exterior-dusk.jpg': 'images (7).jpg',
@@ -64,5 +64,6 @@ function copyLocalImageAliases() {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/abus-apartments/' : '/',
   plugins: [react(), serveLocalImageAliases(), copyLocalImageAliases()],
 })
